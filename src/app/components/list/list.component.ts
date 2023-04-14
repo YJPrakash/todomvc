@@ -5,6 +5,7 @@ import { TodoInterface } from '../../services/todo.interface';
 import { TodoStateInterface } from '../../store/todo-state.interface';
 import { selectAllCompleted, selectVisible } from '../../store/selectors/todo.selector';
 import { onCompleteAll, onRemove, onUpdate } from '../../store/actions/todo.action';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list',
@@ -31,4 +32,11 @@ export class ListComponent {
   public handleCompleteAll() {
     this.store.dispatch(onCompleteAll());
   }
+
+  drop(event: CdkDragDrop<string[]>) {
+    this.store.select(selectVisible).subscribe((data: any) => {
+      moveItemInArray(data, event.previousIndex, event.currentIndex);
+    })
+  }
+
 }

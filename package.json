@@ -8,7 +8,7 @@
   "scripts": {
     "build": "ng build --configuration=production",
     "format": "prettier --write 'src/**/*.ts'",
-    "start": "ng serve",
+    "start": "ng serve --disable-host-check --host 0.0.0.0",
     "test": "npm run test:unit",
     "test:unit": "ng test --no-watch",
     "test:e2e": "start-server-and-test start http-get://localhost:9100 e2e",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@angular/animations": "~13.3.3",
+    "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.3.3",
     "@angular/compiler": "~13.3.3",
     "@angular/core": "~13.3.3",

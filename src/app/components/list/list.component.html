@@ -2,12 +2,14 @@
   <input id="toggle-all" class="toggle-all" type="checkbox" readonly [checked]="allCompleted$ | async" />
   <label htmlFor="toggle-all" (click)="handleCompleteAll()"></label>
 
-  <ul class="todo-list">
+  <ul class="todo-list" (cdkDropListDropped)="drop($event)">
+    <li *cdkDragPlaceholder></li>
     <app-item
       *ngFor="let todo of (visibleTodos$ | async)"
       [todo]="todo"
       (remove)="handleRemove($event)"
       (update)="handleUpdate($event)"
+      cdkDrag
     ></app-item>
   </ul>
 </section>

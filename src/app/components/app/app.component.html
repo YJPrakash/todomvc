@@ -4,5 +4,14 @@
     <app-list *ngIf="(todos$ | async).length"></app-list>
     <app-footer *ngIf="(todos$ | async).length"></app-footer>
   </section>
+  
+  <div>
+    <input #importfile class="clear-completed" type=file accept="application/json" multiple="false"
+      (change)="importTodos()" />
+    <button class="clear-completed" (click)="exportTodos()">Export</button>
+  </div>
+  
+
   <app-copy-right></app-copy-right>
+
 </div>

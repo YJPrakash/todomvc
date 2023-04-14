@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { createStore } from './store';
   declarations: [AppComponent, HeaderComponent, FooterComponent, ListComponent, ItemComponent, CopyRightComponent],
   imports: [
     BrowserModule,
+    DragDropModule,
     FormsModule,
     StoreModule.forRoot(createStore()),
     StoreDevtoolsModule.instrument({
